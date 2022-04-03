@@ -9,7 +9,6 @@ export class EditTasksComponent extends Tasks implements OnInit  {
   
   public readonly actions: PoPageDynamicEditActions = {
     save: '/tasks',
-
   };
   constructor() {
     super();

@@ -28,5 +28,8 @@ namespace api.TODO
             modelBuilder.Entity<Task>().HasData(seed);
         }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+            => optionsBuilder.LogTo(Console.WriteLine);
+
     }
 }

@@ -20,8 +20,10 @@ namespace api.TODO
         [HttpGet]
         public async Task<ActionResult<PoResponseCollectionSuccess<Task>>> GetTask([FromQuery] PoQueryParams queryParams)
         {
-            return await _context.Task
-                .Select(x => x)
+            var query = _context.Task.Select(x => x);
+            if (!string.IsNullOrEmpty(queryParams.Search))
+                query = query.Where(x => x.Name.Contains(queryParams.Search));
+            return await query
                 .ToPoResponseCollectionAsync<Task>(queryParams);
         }
 
