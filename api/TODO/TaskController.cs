@@ -23,6 +23,16 @@ namespace api.TODO
             var query = _context.Task.Select(x => x);
             if (!string.IsNullOrEmpty(queryParams.Search))
                 query = query.Where(x => x.Name.Contains(queryParams.Search));
+            if (!string.IsNullOrEmpty(queryParams.Order))
+                switch (queryParams.Order)
+                {
+                    case "-order":
+                        query = query.OrderByDescending(x => x.Name);
+                        break;
+                    default:
+                        query = query.OrderBy(x => x.Name);
+                        break;
+                }
             return await query
                 .ToPoResponseCollectionAsync<Task>(queryParams);
         }
