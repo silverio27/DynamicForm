@@ -6,10 +6,14 @@ import { AppComponent } from './app.component';
 import { PoModule } from '@po-ui/ng-components';
 import { RouterModule } from '@angular/router';
 import { PoTemplatesModule } from '@po-ui/ng-templates';
+import { TasksComponent } from './tasks/tasks.component';
+import { EditTasksComponent } from './edit-tasks/edit-tasks.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TasksComponent,
+    EditTasksComponent
   ],
   imports: [
     BrowserModule,

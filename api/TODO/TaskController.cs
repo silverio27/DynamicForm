@@ -1,4 +1,5 @@
 #nullable disable
+using api.PO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,9 +18,9 @@ namespace api.TODO
 
         // GET: api/Task
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Task>>> GetTask()
+        public async Task<ActionResult<PoResponseCollectionSuccess<Task>>> GetTask([FromQuery] PoQueryParams query)
         {
-            return await _context.Task.ToListAsync();
+            return (await _context.Task.ToListAsync()).ToPoResponseCollection<Task>();
         }
 
         // GET: api/Task/5
