@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EditTasksComponent } from './edit-tasks/edit-tasks.component';
+import { EditTasksComponent } from './tasks/edit-tasks.component';
 import { TasksComponent } from './tasks/tasks.component';
 
 const routes: Routes = [

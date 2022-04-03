@@ -1,18 +1,11 @@
-import { Component, OnInit } from "@angular/core";
-import { PoPageDynamicEditActions } from "@po-ui/ng-templates";
-
-@Component({
-  templateUrl: "./edit-tasks.component.html",
-  styleUrls: ["./edit-tasks.component.css"],
-})
-export class EditTasksComponent implements OnInit {
+export class Tasks {
   fields = [
     {
       property: "id",
       type: "Number",
       label: "Id",
       visible: false,
-      key:true
+      key: true,
     },
     {
       property: "name",
@@ -35,12 +28,4 @@ export class EditTasksComponent implements OnInit {
       required: true,
     },
   ];
-
-  public readonly actions: PoPageDynamicEditActions = {
-    save: '/tasks',
-
-  };
-  constructor() {}
-
-  ngOnInit(): void {}
 }
