@@ -18,9 +18,11 @@ namespace api.TODO
 
         // GET: api/Task
         [HttpGet]
-        public async Task<ActionResult<PoResponseCollectionSuccess<Task>>> GetTask([FromQuery] PoQueryParams query)
+        public async Task<ActionResult<PoResponseCollectionSuccess<Task>>> GetTask([FromQuery] PoQueryParams queryParams)
         {
-            return (await _context.Task.ToListAsync()).ToPoResponseCollection<Task>();
+            return await _context.Task
+                .Select(x => x)
+                .ToPoResponseCollectionAsync<Task>(queryParams);
         }
 
         // GET: api/Task/5
