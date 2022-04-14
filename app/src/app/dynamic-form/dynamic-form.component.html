@@ -1,0 +1,17 @@
+<div class="container" *ngIf="form">
+
+  <mat-toolbar class="mat-elevation-z1" >
+    <span>{{form.name}}</span>
+    <span class="spacer"></span>
+    <button mat-stroked-button color="primary" (click)="save()">{{form.actions[0].name}}</button>
+  
+  </mat-toolbar>
+  
+  <div class="form">
+    <app-dynamic-field
+      *ngFor="let field of form.fields"
+      [field]="field"
+    ></app-dynamic-field>
+  </div>
+</div>
+

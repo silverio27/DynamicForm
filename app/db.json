@@ -1,0 +1,60 @@
+{
+  "forms": [
+    {
+      "id": 1,
+      "name": "TODO",
+      "fields": [
+        {
+          "name": "tarefa",
+          "label": "Tarefa",
+          "type": "text"
+        },
+        {
+          "name": "nome_da_lista",
+          "label": "Nome da lista",
+          "type": "select",
+          "options": [
+            {
+              "id": "1",
+              "value": "Em Andamento"
+            },
+            {
+              "id": "2",
+              "value": "A fazer"
+            },
+            {
+              "id": "3",
+              "value": "Fazendo"
+            }
+          ]
+        },
+        {
+          "name": "pronto",
+          "label": "Pronto",
+          "type": "boolean"
+        }
+      ],
+      "actions": [
+        {
+          "name": "Salvar",
+          "type": "save",
+          "url": "http://localhost:3000/tasks"
+        }
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "nome_da_lista": "Em Andamento",
+      "pronto": true,
+      "tarefa": "Form Dynamic"
+    },
+    {
+      "tarefa": "Lucas Silverio",
+      "nome_da_lista": "A fazer",
+      "pronto": true,
+      "id": 2
+    }
+  ]
+}

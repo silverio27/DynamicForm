@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "analytics": "f49af4d2-ef50-4dcd-ac35-eb77c053d6f1"
+    "analytics": "e4c3be89-9507-4683-9e7f-85d114bb008a"
   },
   "version": 1,
   "newProjectRoot": "projects",
@@ -30,7 +30,7 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@po-ui/style/css/po-theme-default.min.css",
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -98,7 +98,7 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@po-ui/style/css/po-theme-default.min.css",
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
