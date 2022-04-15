@@ -3,13 +3,16 @@ export interface IForm {
   name: string;
   fields: IField[];
   actions: IAction[];
+  view: IView
 }
 export interface IField {
   name: string;
   label:string;
-  type: "text" | "select" | "boolean";
+  type: "text" | "select" | "boolean" | "number" | "action";
   options?: IOption[];
-  value: any;
+  value?: any;
+  key?: boolean;
+  visible?: boolean;
 }
 export interface IOption {
   id: string;
@@ -19,4 +22,7 @@ export interface IAction {
   name: string;
   type: "save";
   url: string;
+}
+export interface IView{
+  url:string;
 }

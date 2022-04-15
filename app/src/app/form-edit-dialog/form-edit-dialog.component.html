@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>{{form.name}}</h1>
+<div mat-dialog-content>
+  <app-dynamic-form #frm [form]="form" [openedInDialog]="true"></app-dynamic-form>
+</div>
+<div mat-dialog-actions>
+  <button
+    mat-raised-button
+    color="primary"
+    [mat-dialog-close]="frm.getService()"
+  >
+    Salvar
+  </button>
+</div>

@@ -17,13 +17,20 @@ import {MatButtonModule} from '@angular/material/button';
 import { FormListsComponent } from './form-lists/form-lists.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import {MatCardModule} from '@angular/material/card';
+import { FormViewComponent } from './form-view/form-view.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatDialogModule} from '@angular/material/dialog';
+import { FormEditDialogComponent } from './form-edit-dialog/form-edit-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DynamicFieldComponent,
     DynamicFormComponent,
-    FormListsComponent
+    FormListsComponent,
+    FormViewComponent,
+    FormEditDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +45,10 @@ import { FormsModule } from '@angular/forms';
     MatToolbarModule,
     MatButtonModule,
     HttpClientModule,
-    FormsModule
+    MatCardModule,
+    FormsModule,
+    MatTableModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

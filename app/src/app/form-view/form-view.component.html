@@ -1,0 +1,47 @@
+<div class="form-view" *ngIf="form">
+  <mat-toolbar class="mat-elevation-z1">
+    <a mat-icon-button routerLink="/"><mat-icon>arrow_back</mat-icon></a>
+    <span>{{form.name}}</span>
+    <span class="spacer"></span>
+    <button mat-raised-button (click)="novo()">Novo</button>
+  </mat-toolbar>
+
+  <table
+    *ngIf="data.length > 0"
+    mat-table
+    [dataSource]="data"
+    class="mat-elevation-z8"
+  >
+    <ng-container [matColumnDef]="field.name" *ngFor="let field of form.fields">
+      <th mat-header-cell *matHeaderCellDef>{{field.label}}</th>
+      <td mat-cell *matCellDef="let element">
+        <div [ngSwitch]="field.type">
+          <span *ngSwitchCase="'action'">
+            <span [ngSwitch]="field.name">
+              <button
+                *ngSwitchCase="'delete'"
+                mat-icon-button
+                color="warn"
+                (click)="delete(element)"
+              >
+                <mat-icon>delete</mat-icon>
+              </button>
+              <button
+                *ngSwitchCase="'edit'"
+                mat-icon-button
+                color="primary"
+                (click)="edit(element)"
+              >
+                <mat-icon>edit</mat-icon>
+              </button>
+            </span>
+          </span>
+          <span *ngSwitchDefault>{{element[field.name]}}</span>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

@@ -1,6 +1,6 @@
 <div class="container" *ngIf="form">
 
-  <mat-toolbar class="mat-elevation-z1" >
+  <mat-toolbar class="mat-elevation-z1" *ngIf="!openedInDialog" >
     <span>{{form.name}}</span>
     <span class="spacer"></span>
     <button mat-stroked-button color="primary" (click)="save()">{{form.actions[0].name}}</button>

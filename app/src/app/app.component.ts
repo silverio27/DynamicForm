@@ -7,12 +7,6 @@ import { IField, IForm } from "./iform";
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"],
 })
-export class AppComponent implements OnInit {
-  form!: IForm;
-  constructor(private http: HttpClient) {}
-  ngOnInit(): void {
-    this.http.get<IForm>("http://localhost:3000/forms/1").subscribe((x) => {
-      this.form = x;
-    });
-  }
+export class AppComponent  {
+
 }

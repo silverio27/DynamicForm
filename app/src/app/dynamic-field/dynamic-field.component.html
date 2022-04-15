@@ -1,4 +1,4 @@
-<div [ngSwitch]="field.type">
+<div [ngSwitch]="field.type" *ngIf="field.visible != false">
   <mat-form-field appearance="outline" *ngSwitchCase="'text'">
     <mat-label>{{field.label}}</mat-label>
     <input

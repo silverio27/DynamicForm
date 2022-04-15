@@ -5,6 +5,13 @@
       "name": "TODO",
       "fields": [
         {
+          "name": "id",
+          "label": "Id",
+          "type": "number",
+          "key": true,
+          "visible": false
+        },
+        {
           "name": "tarefa",
           "label": "Tarefa",
           "type": "text"
@@ -40,21 +47,36 @@
           "type": "save",
           "url": "http://localhost:3000/tasks"
         }
-      ]
+      ],
+      "view": {
+        "url": "http://localhost:3000/tasks"
+      }
     }
   ],
   "tasks": [
     {
-      "id": 1,
-      "nome_da_lista": "Em Andamento",
-      "pronto": true,
-      "tarefa": "Form Dynamic"
-    },
-    {
-      "tarefa": "Lucas Silverio",
+      "tarefa": "Teste 4",
       "nome_da_lista": "A fazer",
       "pronto": true,
-      "id": 2
+      "id": 4
+    },
+    {
+      "tarefa": "Novo",
+      "nome_da_lista": "A fazer",
+      "pronto": true,
+      "id": 5
+    },
+    {
+      "tarefa": "Certo",
+      "nome_da_lista": "Em Andamento",
+      "pronto": true,
+      "id": 6
+    },
+    {
+      "tarefa": "Ju",
+      "nome_da_lista": "A fazer",
+      "pronto": true,
+      "id": 7
     }
   ]
 }
