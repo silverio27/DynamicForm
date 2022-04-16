@@ -1,5 +1,5 @@
 import { HttpClient } from "@angular/common/http";
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { IForm } from "../iform";
 
 @Component({
@@ -8,6 +8,8 @@ import { IForm } from "../iform";
   styleUrls: ["./form-lists.component.css"],
 })
 export class FormListsComponent implements OnInit {
+  @Input() openedInFlow = false;
+  @Output() select = new EventEmitter<IForm>();
   forms: IForm[]=[];
   constructor(private http: HttpClient) {}
   ngOnInit(): void {

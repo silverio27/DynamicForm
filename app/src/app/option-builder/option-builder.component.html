@@ -1,0 +1,25 @@
+<div class="form">
+  <mat-form-field appearance="outline">
+    <mat-label>Id</mat-label>
+    <input matInput placeholder="Id" [(ngModel)]="option.id" />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Valor</mat-label>
+    <input matInput placeholder="Valor" [(ngModel)]="option.value" />
+  </mat-form-field>
+  <button mat-icon-button (click)="add(); tableOption.renderRows();"><mat-icon>add</mat-icon></button>
+</div>
+<table #tableOption mat-table [dataSource]="field.options!" class="mat-elevation-z8">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>Id</th>
+    <td mat-cell *matCellDef="let element">{{element.id}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="value">
+    <th mat-header-cell *matHeaderCellDef>Valor</th>
+    <td mat-cell *matCellDef="let element">{{element.value}}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="['id','value']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['id','value'];"></tr>
+</table>

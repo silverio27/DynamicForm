@@ -3,12 +3,12 @@
   <mat-toolbar class="mat-elevation-z1" *ngIf="!openedInDialog" >
     <span>{{form.name}}</span>
     <span class="spacer"></span>
-    <button mat-stroked-button color="primary" (click)="save()">{{form.actions[0].name}}</button>
+    <button *ngIf="form.actions.length > 0" mat-stroked-button color="primary" (click)="save()">{{form.actions[0].name}}</button>
   
   </mat-toolbar>
   
   <div class="form">
-    <app-dynamic-field
+    <app-dynamic-field 
       *ngFor="let field of form.fields"
       [field]="field"
     ></app-dynamic-field>

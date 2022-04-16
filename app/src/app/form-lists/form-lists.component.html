@@ -1,16 +1,29 @@
-<mat-toolbar class="mat-elevation-z1">
+<mat-toolbar class="mat-elevation-z1" *ngIf="!openedInFlow">
   <span>Formulários</span>
+  <span class="spacer"></span>
+  <a mat-stroked-button [routerLink]="['/form-builder']">Novo</a>
 </mat-toolbar>
+<h3 *ngIf="openedInFlow">Selecione um formulário</h3>
 <div class="forms">
   <mat-card class="form" *ngFor="let form of forms">
     <mat-card-title>{{form.name}}</mat-card-title>
     <mat-card-subtitle>Formulário</mat-card-subtitle>
-    <mat-card-actions>
+    <mat-card-actions align="end">
       <a
-      mat-button
+        *ngIf="!openedInFlow"
+        mat-button
         [routerLink]="['../form-view', form.id]"
         routerLinkActive="router-link-active"
-      >Abrir</a>
+        >Abrir</a
+      >
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="select.emit(form)"
+        *ngIf="openedInFlow"
+      >
+        Selecionar
+      </button>
     </mat-card-actions>
   </mat-card>
 </div>

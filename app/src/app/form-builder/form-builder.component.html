@@ -1,0 +1,164 @@
+<mat-toolbar class="mat-elevation-z1">
+  <a mat-icon-button [routerLink]="['/']"><mat-icon>arrow_back</mat-icon></a>
+  <span>Novo formulário</span>
+  <span class="spacer"></span>
+  <button mat-stroked-button (click)="save()">Salvar</button>
+</mat-toolbar>
+
+<mat-tab-group class="form-builder">
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="tab-icon">title</mat-icon>
+      Visão geral
+    </ng-template>
+    <div class="general">
+      <mat-form-field appearance="outline">
+        <mat-label>Nome</mat-label>
+        <input matInput placeholder="Nome" [(ngModel)]="form.name" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Serviço</mat-label>
+        <input matInput placeholder="Url" [(ngModel)]="form.view.url" />
+      </mat-form-field>
+    </div>
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="tab-icon">settings</mat-icon>
+      Campos
+    </ng-template>
+    <div class="fields">
+      <mat-form-field appearance="outline">
+        <mat-label>Nome</mat-label>
+        <input matInput placeholder="Nome" [(ngModel)]="field.name" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Rótulo</mat-label>
+        <input matInput placeholder="Rótulo" [(ngModel)]="field.label" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Tipo</mat-label>
+        <mat-select [(ngModel)]="field.type">
+          <mat-option *ngFor="let type of types" [value]="type">
+            {{type}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button
+        mat-raised-button
+        (click)="openOptionBuilder()"
+        *ngIf="field.type == 'select'"
+      >
+        <mat-icon>settings</mat-icon>
+        Opções
+      </button>
+
+      <mat-slide-toggle [(ngModel)]="field.key" *ngIf="field.type != 'select'"
+        >Chave</mat-slide-toggle
+      >
+      <mat-slide-toggle [(ngModel)]="field.visible">Visível</mat-slide-toggle>
+      <button mat-icon-button (click)="addField(); tableFields.renderRows()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    <table
+      #tableFields
+      mat-table
+      [dataSource]="form.fields"
+      class="mat-elevation-z1"
+    >
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Nome</th>
+        <td mat-cell *matCellDef="let element">{{element.name}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="label">
+        <th mat-header-cell *matHeaderCellDef>Rótulo</th>
+        <td mat-cell *matCellDef="let element">{{element.label}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef>Tipo</th>
+        <td mat-cell *matCellDef="let element">{{element.type}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="options">
+        <th mat-header-cell *matHeaderCellDef>Opções</th>
+        <td mat-cell *matCellDef="let element">{{element.options}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="key">
+        <th mat-header-cell *matHeaderCellDef>Chave</th>
+        <td mat-cell *matCellDef="let element">{{element.key}}</td>
+      </ng-container>
+      <ng-container matColumnDef="visible">
+        <th mat-header-cell *matHeaderCellDef>Visivel</th>
+        <td mat-cell *matCellDef="let element">{{element.visible}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="tab-icon">api</mat-icon>
+      Ações
+    </ng-template>
+    <div class="actions">
+      <mat-form-field appearance="outline">
+        <mat-label>Nome</mat-label>
+        <input matInput placeholder="Nome" [(ngModel)]="action.name" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Tipo</mat-label>
+        <mat-select [(ngModel)]="action.type">
+          <mat-option *ngFor="let type of typesOfAction" [value]="type">
+            {{type}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Url</mat-label>
+        <input matInput placeholder="Url" [(ngModel)]="action.url" />
+      </mat-form-field>
+      <button mat-icon-button (click)="addAction(); tableActions.renderRows()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    <table
+      #tableActions
+      mat-table
+      [dataSource]="form.actions"
+      class="mat-elevation-z1"
+    >
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Nome</th>
+        <td mat-cell *matCellDef="let element">{{element.name}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef>Tipo</th>
+        <td mat-cell *matCellDef="let element">{{element.type}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="url">
+        <th mat-header-cell *matHeaderCellDef>Url</th>
+        <td mat-cell *matCellDef="let element">{{element.url}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="['name','type','url']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['name','type','url'];"></tr>
+    </table>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="tab-icon">preview</mat-icon>
+      Preview
+    </ng-template>
+
+    <app-dynamic-form [form]="form"></app-dynamic-form>
+  </mat-tab>
+</mat-tab-group>

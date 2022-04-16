@@ -1,0 +1,21 @@
+.form-builder{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+.general,
+.actions,
+.fields{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+table {
+    width: 100%;
+}
+.tab-icon {
+    margin-right: 8px;
+  }
+  

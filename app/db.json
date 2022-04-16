@@ -51,6 +51,36 @@
       "view": {
         "url": "http://localhost:3000/tasks"
       }
+    },
+    {
+      "fields": [
+        {
+          "options": [],
+          "name": "id",
+          "label": "Id",
+          "type": "number",
+          "key": true,
+          "visible": false
+        },
+        {
+          "name": "nome",
+          "label": "Nome",
+          "type": "text",
+          "visible": true
+        }
+      ],
+      "actions": [
+        {
+          "name": "save",
+          "type": "save",
+          "url": "http://localhost:3000/testes"
+        }
+      ],
+      "view": {
+        "url": "http://localhost:3000/testes"
+      },
+      "name": "Teste",
+      "id": 2
     }
   ],
   "tasks": [
@@ -77,6 +107,16 @@
       "nome_da_lista": "A fazer",
       "pronto": true,
       "id": 7
+    }
+  ],
+  "testes": [
+    {
+      "nome": "Teste",
+      "id": 1
+    },
+    {
+      "nome": "Novo",
+      "id": 2
     }
   ]
 }

@@ -22,6 +22,15 @@ import { FormViewComponent } from './form-view/form-view.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
 import { FormEditDialogComponent } from './form-edit-dialog/form-edit-dialog.component';
+import { FormBuilderComponent } from './form-builder/form-builder.component';
+import { OptionBuilderComponent } from './option-builder/option-builder.component';
+import { FlowComponent } from './flow/flow.component';
+import { NewFlowComponent } from './new-flow/new-flow.component';
+import {OverlayModule} from '@angular/cdk/overlay';
+import { StepComponent } from './step/step.component';
+import { NewStepComponent } from './new-step/new-step.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -30,7 +39,14 @@ import { FormEditDialogComponent } from './form-edit-dialog/form-edit-dialog.com
     DynamicFormComponent,
     FormListsComponent,
     FormViewComponent,
-    FormEditDialogComponent
+    FormEditDialogComponent,
+    FormBuilderComponent,
+    OptionBuilderComponent,
+    FlowComponent,
+    NewFlowComponent,
+    StepComponent,
+    
+    NewStepComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +64,10 @@ import { FormEditDialogComponent } from './form-edit-dialog/form-edit-dialog.com
     MatCardModule,
     FormsModule,
     MatTableModule,
-    MatDialogModule
+    MatDialogModule,
+    OverlayModule,
+    MatExpansionModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

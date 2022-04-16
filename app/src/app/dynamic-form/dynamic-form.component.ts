@@ -12,11 +12,10 @@ import { IForm } from "../iform";
   selector: "app-dynamic-form",
   templateUrl: "./dynamic-form.component.html",
   styleUrls: ["./dynamic-form.component.css"],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DynamicFormComponent implements OnInit {
   @Input() form!: IForm;
-  @Input() openedInDialog = true;
+  @Input() openedInDialog = false;
   model: any = {};
 
   constructor(private http: HttpClient) {}

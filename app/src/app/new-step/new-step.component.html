@@ -1,0 +1,13 @@
+<div class="new-step mat-elevation-z5">
+  <mat-card class="step mat-elevation-z3" *ngFor="let type of types">
+    <mat-card-title>
+      <mat-icon>{{type.icon}}</mat-icon>
+      {{type.name}}</mat-card-title
+    >
+    <mat-card-subtitle> {{type.subtitle}}</mat-card-subtitle>
+
+    <mat-card-actions align="end">
+      <button mat-raised-button color="primary" (click)="select.emit(type)">Adicionar</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
